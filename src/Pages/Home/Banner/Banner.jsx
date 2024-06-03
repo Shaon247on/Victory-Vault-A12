@@ -7,7 +7,7 @@ import 'swiper/css/effect-cards';
 import 'swiper/css';
 import 'swiper/swiper-bundle.css';
 import ButtonFilled from '../../../Components/Button/ButtonFilled';
-
+import ReactTypingEffect from 'react-typing-effect';
 const Banner = () => {
 
     return (
@@ -15,7 +15,33 @@ const Banner = () => {
             <div className='grid grid-cols-1 md:grid-cols-11 p-20 gap-11 md:gap-0 bg-gradient-to-t from-[#a6bdfe]'>
                 <div className='md:col-span-4'>
                     <h1 className='text-[29px] text-center md:text-start md:text-[20px] lg:text-[50px] font-bold dark:text-white'>
-                        Show The Skills To Drive <LinearGradient className='md:text-[29px] lg:text-[50px] font-extrabold  ' gradient={['to right', '#3158ef ,#b765e7']}>To win</LinearGradient>
+                        Show Your Skills <br />
+                        To <span></span>
+                        <ReactTypingEffect
+                        speed={100}
+                        eraseSpeed={100}
+                        eraseDelay={3000}
+                        typingDelay={300}
+                            text={["Drive...","Participate", "Win!!!"]}
+                            cursorRenderer={cursor => <h1>{cursor}</h1>}
+                            displayTextRenderer={(text, i) => {
+                                return (
+                                    <h1>
+                                        <LinearGradient gradient={['to right', '#3158ef ,#b765e7']} >
+                                        {text.split('').map((char, i) => {
+                                            const key = `${i}`;
+                                            return (
+                                                <span
+                                                    key={key}
+                                                >                                                    {char}
+                                                </span>
+                                            );
+                                        })}
+                                        </LinearGradient>
+                                    </h1>
+                                );
+                            }}
+                        />
                     </h1>
                     <p className='text-[#6b7389] dark:text-white md:text-base lg:text-lg md:mt-3 lg:mt-7 mb2
                      lg:mb-5'>Search for your contest and participate now to win fantastic prizes. Don&apos;t miss your chance to become a winner!</p>
