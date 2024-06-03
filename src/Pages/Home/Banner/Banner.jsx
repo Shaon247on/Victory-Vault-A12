@@ -12,7 +12,7 @@ const Banner = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-11 p-20 gap-11 md:gap-0 bg-gradient-to-t from-[#a6bdfe] z-0'>
+            <div className='grid grid-cols-1 md:grid-cols-11 p-20 gap-11 md:gap-0 bg-gradient-to-t from-[#a6bdfe]'>
                 <div className='md:col-span-4'>
                     <h1 className='text-[29px] text-center md:text-start md:text-[20px] lg:text-[50px] font-bold dark:text-white'>
                         Show The Skills To Drive <LinearGradient className='md:text-[29px] lg:text-[50px] font-extrabold  ' gradient={['to right', '#3158ef ,#b765e7']}>To win</LinearGradient>

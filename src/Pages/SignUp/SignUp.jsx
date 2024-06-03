@@ -68,10 +68,13 @@ const SignUp = () => {
                         <div className="space-y-2">
                             <label htmlFor="email" className="block text-sm">Photo</label>
                             <input type="text" placeholder="photoURL" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 border-gray-300 dark:bg-gray-900 bg-gray-50 dark:text-gray-100 text-gray-800 focus:border-violet-400 focus:dark:border-violet-600" 
-                            {...register("photo", {required: true})}
+                            {...register("photo", {required: true, pattern: /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|gif|bmp|webp|svg)$/})}
                             />
                             {errors.photo?.type === "required" && (
                                 <p className="text-red-600">photoURL is required</p>
+                            )}
+                            {errors.photo?.type === "pattern" && (
+                                <p className="text-red-600">Given link is not an photo. </p>
                             )}
                         </div>
                         <div className="space-y-2">
