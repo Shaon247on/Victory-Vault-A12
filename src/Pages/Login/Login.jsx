@@ -7,11 +7,13 @@ import ButtonOutline from "../../Components/Button/ButtonOutline";
 import { useForm } from "react-hook-form"
 import Swal from "sweetalert2";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const Login = () => {
     const [disable, setDisable] = useState(true)
     const { logIn, googleLogin, githubLogin } = useAuth()
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -49,16 +51,26 @@ const Login = () => {
 
     const handleGoogleLogin = ()=>{
         googleLogin()
-        .then(result=>{
+        .then(async result=>{
             console.log(result.user);
-            navigate(location.state ? location.state : "/")
+            const userInfo ={name: result.user.displayName, email: result.user.email}
+            axiosPublic.post('/users', userInfo)
+            .then(res=>{
+                console.log(res.data)
+                navigate(location.state ? location.state : "/")
+            })
         })
     }
     const handleGithubLogin = ()=>{
         githubLogin()
-        .then(result=>{
+        .then(async result=>{
             console.log(result.user);
-            navigate(location.state ? location.state : "/")
+            const userInfo ={name: result.user.displayName, email: result.user.email}
+            axiosPublic.post('/users', userInfo)
+            .then(res=>{
+                console.log(res.data)
+                navigate(location.state ? location.state : "/")
+            })
         })
     }
     useEffect(() => {

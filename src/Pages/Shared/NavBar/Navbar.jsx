@@ -109,7 +109,7 @@ const Navbar = () => {
                             }}
                         >
                                 <MenuItem >Profile</MenuItem>
-                                <MenuItem >My account</MenuItem>
+                                <Link to='/dashboard'><MenuItem >Dashboard</MenuItem></Link>
                                 <MenuItem onClick={handleLogOut} click>Logout</MenuItem>
                             </Menu></> :
                         <Link to='/login'><ButtonFilled text="Login"></ButtonFilled></Link>

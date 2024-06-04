@@ -1,77 +1,103 @@
 [
     {
       "ContestName": "Summer Code Challenge",
+      "tag":"Image Design",
       "ContestFee": 30,
       "Image": "https://i.pinimg.com/564x/17/3d/f0/173df02e65b4334a69a1f5d5d71d580e.jpg",
       "AttemptedCount": 0,
       "ContestDescription": "A challenging contest to test your summer coding skills with various tasks ranging from easy to hard.",
       "ContestPrize": "$500 Amazon Gift Card",
-      "ContestWinner": [
+      "ContestWinner":
         {
           "name": "jhon Doe",
           "photo": "https://i.pinimg.com/736x/99/74/38/997438ca7afa79d4d4b50d76aa47bcd3.jpg"
-        }
-      ],
-      "Deadline": "2024-07-01T23:59:59Z"
+        },
+      "Deadline": "2024-07-01T23:59:59Z",
+      "Author":{
+        "Name":"Lalon Sai",
+        "Email":"lalon@sai.com",
+        "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
+      }
     },
     {
       "ContestName": "AI Innovation Contest",
+      "tag":"Article Writing",
       "ContestFee": 45,
       "Image": "https://i.pinimg.com/564x/99/c8/57/99c85732babaee049ac2984556612f81.jpg",
       "AttemptedCount": 0,
       "ContestDescription": "Showcase your innovative AI projects and stand a chance to win exciting prizes.",
       "ContestPrize": "NVIDIA RTX 3080 GPU",
-      "ContestWinner": [
+      "ContestWinner": 
         {
           "name": "Jane Smith",
           "photo": "https://i.pinimg.com/564x/9e/47/79/9e47798a74eb85a391204f7f32c509d1.jpg"
-        }
-      ],
-      "Deadline": "2024-08-15T23:59:59Z"
+        },
+      "Deadline": "2024-08-15T23:59:59Z",
+      "Author":{
+        "Name":"Lalon Sai",
+        "Email":"lalon@sai.com",
+        "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
+      }
     },
     {
       "ContestName": "Web Development Marathon",
+      "tag":"Marketing Strategy",
       "ContestFee": 20,
       "Image": "https://i.pinimg.com/736x/85/f1/0b/85f10bee3e6d29edf55c2d801af2c5f1.jpg",
       "AttemptedCount": 0,
       "ContestDescription": "A marathon for web developers to create the most innovative and functional websites.",
       "ContestPrize": "MacBook Pro",
-      "ContestWinner": [
+      "ContestWinner": 
         {
           "name": "Alice Johnson",
           "photo": "https://i.pinimg.com/564x/5d/83/c9/5d83c9378f9c2d3f83e56f33ada2fc25.jpg"
-        }
-      ],
-      "Deadline": "2024-09-10T23:59:59Z"
+        },
+      "Deadline": "2024-09-10T23:59:59Z",
+      "Author":{
+        "Name":"Lalon Sai",
+        "Email":"lalon@sai.com",
+        "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
+      }
     },
     {
       "ContestName": "Mobile App Challenge",
+      "tag":"Digital advertisement",
       "ContestFee": 50,
       "Image": "https://i.pinimg.com/736x/b8/eb/6d/b8eb6d7f98903eb6eb5c6e44f9835f3e.jpg",
       "AttemptedCount": 0,
       "ContestDescription": "Develop a unique and useful mobile app to win the grand prize.",
       "ContestPrize": "$1000 Cash",
-      "ContestWinner": [
+      "ContestWinner": 
         {
           "name": "Michael Brown",
           "photo": "https://i.pinimg.com/564x/4b/cc/54/4bcc54ebe6d0e6700e3df3047c1129c8.jpg"
-        }
-      ],
-      "Deadline": "2024-10-05T23:59:59Z"
+        },
+      
+      "Deadline": "2024-10-05T23:59:59Z",
+      "Author":{
+        "Name":"Lalon Sai",
+        "Email":"lalon@sai.com",
+        "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
+      }
     },
     {
       "ContestName": "Data Science Contest",
+      "tag":"Gaming Review",
       "ContestFee": 45,
       "Image": "https://i.pinimg.com/564x/04/cb/cf/04cbcf835f1f6638beee53c0c8a60d08.jpg",
       "AttemptedCount": 0,
       "ContestDescription": "Analyze complex datasets and present your findings to win amazing rewards.",
       "ContestPrize": "Apple iPad Pro",
-      "ContestWinner": [
+      "ContestWinner": 
         {
           "name": "Emily Davis",
           "photo": "https://i.pinimg.com/564x/b8/82/83/b882836fa749f501aefa935d19e19977.jpg"
-        }
-      ],
-      "Deadline": "2024-11-20T23:59:59Z"
+        },
+      "Deadline": "2024-11-20T23:59:59Z",
+      "Author":{
+        "Name":"Lalon Sai",
+        "Email":"lalon@sai.com",
+        "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
+      }
     }
   ]
