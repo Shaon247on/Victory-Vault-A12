@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { FaTrash, FaUsers } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import { IoIosAddCircle } from "react-icons/io";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { RiCheckDoubleLine } from "react-icons/ri";
+import Title from "../../Components/Title/Title";
 
-const ManageUsers = () => {
+const ManageUsers = () => {  
     const axios = useAxiosPublic()
-    const { data: users=[], refetch } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const { data } = await axios.get('/users')
@@ -13,7 +16,7 @@ const ManageUsers = () => {
         }
     })
 
-    const handleDeleteUser = (user)=>{
+    const handleDeleteUser = (user) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -24,12 +27,12 @@ const ManageUsers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                const deleteItem = async()=>{
+                const deleteItem = async () => {
                     const { data } = await axios.delete(`/users/${user._id}`)
                     console.log(data)
                     refetch()
-                }       
-                deleteItem()         
+                }
+                deleteItem()
                 Swal.fire({
                     title: "Deleted!",
                     text: "User has been deleted.",
@@ -39,28 +42,60 @@ const ManageUsers = () => {
         });
     }
 
-    const handleMakeAdmin = user =>{
+    const handleMakeAdmin = user => {
         axios.patch(`/users/admin/${user._id}`)
-        .then(res=>{
-            console.log(res.data);
-            if(res.data.modifiedCount > 0){
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: `${user.name} us an admin now.`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  });   
-                  refetch()               
-            }
-        })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an admin now.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+                }
+            })
+    }
+    const handleMakeCreator = user => {
+        axios.patch(`/users/creator/${user._id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an Contest Creator now.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+                }
+            })
+    }
+    const handleMakeUser = user => {
+        axios.patch(`/users/user/${user._id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an user now.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+                }
+            })
     }
     return (
-        <div className="flex flex-col justify-center gap-4">
-            <div>
-                <h1 className="text-3xl">All Users</h1>
-                <h1 className="text-3xl">Total Users: {users.length}</h1>
-            </div>
+        <div className="flex flex-col justify-center gap-4 p-10">
+            <Title
+                mainTitle={'Mange All Users'}
+                subTitle={'Control all users authority'}
+            ></Title>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table table-zebra w-full">
@@ -70,7 +105,9 @@ const ManageUsers = () => {
                                 <th>No.</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Roll</th>
+                                <th>Admin</th>
+                                <th>Creator</th>
+                                <th>User</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -83,7 +120,13 @@ const ManageUsers = () => {
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>
-                                            { user.role=== 'admin'? "admin": <button onClick={() => handleMakeAdmin(user)} className="btn bg-orange-600 text-white group"><FaUsers className="text-lg text-white group-hover:text-orange-600 duration-300"></FaUsers></button>}
+                                            {user.role === 'admin' ? <RiCheckDoubleLine></RiCheckDoubleLine> : <button onClick={() => handleMakeAdmin(user)} className="btn bg-gradient-to-l from-[#3158ef] to-[#b765e7] text-white group"><IoIosAddCircle className="text-lg text-white group-hover:text-[#553e92] duration-300"></IoIosAddCircle></button>}
+                                        </td>
+                                        <td>
+                                            {user?.role === 'creator' ? <RiCheckDoubleLine></RiCheckDoubleLine> : <button onClick={() => handleMakeCreator(user)} className="btn bg-gradient-to-l from-[#3158ef] to-[#b765e7] text-white group"><IoIosAddCircle className="text-lg text-white group-hover:text-[#553e92] duration-300"></IoIosAddCircle></button>}
+                                        </td>
+                                        <td>
+                                            {user?.role === 'user' ? <RiCheckDoubleLine></RiCheckDoubleLine> : <button onClick={() => handleMakeUser(user)} className="btn bg-gradient-to-l from-[#3158ef] to-[#b765e7] text-white group"><IoIosAddCircle className="text-lg text-white group-hover:text-[#553e92] duration-300"></IoIosAddCircle></button>}
                                         </td>
                                         <td>
                                             <button onClick={() => handleDeleteUser(user)} className="btn"><FaTrash className="text-red-600 text-lg"></FaTrash></button>

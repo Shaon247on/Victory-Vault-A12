@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, deleteUser } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import auth from "../firebase/firebase.config";
@@ -36,6 +36,11 @@ const AuthProvider = ({children}) => {
     const logOut=()=>{
         setLoading(true)
         return signOut(auth)
+    }
+
+    const deleteAccount = (users)=>{
+        setLoading(true)
+        return deleteUser(users)
     }
 
     const updateUserProfile= (name, photoURL)=>{
@@ -77,7 +82,8 @@ const AuthProvider = ({children}) => {
         logOut,
         updateUserProfile,
         googleLogin,
-        githubLogin
+        githubLogin,
+        deleteAccount
     }
     return (
         <AuthContext.Provider value={authInfo}>

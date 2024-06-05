@@ -1,17 +1,18 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingBag, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingBag, FaUsers } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
-import { FaListUl } from "react-icons/fa";
 import useAdmin from "../Hooks/useAdmin";
 
 
-
 const Dashboard = () => {
-    const [isAdmin] = useAdmin()
-    console.log(isAdmin)
+    const [isAdmin,isAdminLoading] = useAdmin()
+    console.log(isAdmin, isAdminLoading)
+    if(isAdminLoading){
+        <span className="loading loading-spinner text-secondary"></span>
+    }
     return (
         <div className="flex justify-between">
-            <div className="w-64 min-h-screen bg-orange-400">
+            <div className="w-64 min-h-screen bg-gradient-to-l from-[#3158ef] to-[#b765e7]">
                 <ul className="menu p-5">
                     {
                         isAdmin ?
@@ -19,7 +20,7 @@ const Dashboard = () => {
                             <>
                                 <li>
                                     <NavLink to='/dashboard/adminHome'><FaHome></FaHome> Admin Home</NavLink>
-                                </li>                               
+                                </li>
                                 <li>
                                     <NavLink to='/dashboard/manageBookings'><FaBook></FaBook> Manage Contest</NavLink>
                                 </li>
