@@ -53,7 +53,7 @@ const Login = () => {
         googleLogin()
         .then(async result=>{
             console.log(result.user);
-            const userInfo ={name: result.user.displayName, email: result.user.email}
+            const userInfo ={name: result.user?.displayName, email: result.user?.email}
             axiosPublic.post('/users', userInfo)
             .then(res=>{
                 console.log(res.data)
@@ -65,7 +65,7 @@ const Login = () => {
         githubLogin()
         .then(async result=>{
             console.log(result.user);
-            const userInfo ={name: result.user.displayName, email: result.user.email}
+            const userInfo ={name: result.user?.displayName, email: result.user?.email}
             axiosPublic.post('/users', userInfo)
             .then(res=>{
                 console.log(res.data)

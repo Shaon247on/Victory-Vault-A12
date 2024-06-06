@@ -8,7 +8,7 @@ const axiosSecure = axios.create({
 
 const useAxiosSecure = () => {
     const navigate = useNavigate()
-    const { logOut } = useAuth()
+    const { logOut, loading } = useAuth()
     // interceptor for get request
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
@@ -22,6 +22,9 @@ const useAxiosSecure = () => {
     axiosSecure.interceptors.response.use(function (response) {
         return response
     }, async (err) => {
+        if(loading){
+            return <span className="loading loading-spinner text-secondary"></span>
+        }
         const status = err.response.status
         if (status === 401 || status === 403) {
 

@@ -2,14 +2,15 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaShoppingBag, FaUsers } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import useAdmin from "../Hooks/useAdmin";
+import useCreator from "../Hooks/useCreator";
+
 
 
 const Dashboard = () => {
-    const [isAdmin,isAdminLoading] = useAdmin()
-    console.log(isAdmin, isAdminLoading)
-    if(isAdminLoading){
-        <span className="loading loading-spinner text-secondary"></span>
-    }
+    const [isAdmin] = useAdmin()
+    const [isCreator] = useCreator()
+    console.log('creator is:',isCreator)
+   
     return (
         <div className="flex justify-between">
             <div className="w-64 min-h-screen bg-gradient-to-l from-[#3158ef] to-[#b765e7]">

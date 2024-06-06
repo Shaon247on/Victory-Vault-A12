@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { createContext } from "react";
 import auth from "../firebase/firebase.config";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import PropTypes from 'prop-types';
 
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider()
@@ -91,5 +92,9 @@ const AuthProvider = ({children}) => {
         </AuthContext.Provider>
     );
 };
+
+AuthProvider.propTypes={
+    children:PropTypes.node
+}
 
 export default AuthProvider;
