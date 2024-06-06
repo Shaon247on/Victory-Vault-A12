@@ -8,6 +8,7 @@ import ContestDetails from "../Pages/ContestDetails/ContestDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Dashboard from "../LayOut/Dashboard";
 import ManageUsers from "../Pages/ManageUsers/ManageUsers";
+import ManageContests from "../Pages/ManageContests/ManageContests";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
                 path: 'manageUsers',
                 element:<ManageUsers></ManageUsers>
                 
+            },
+            {
+                path:'manageContests',
+                element:<ManageContests></ManageContests>
             }
             // Creators
             // Users            
