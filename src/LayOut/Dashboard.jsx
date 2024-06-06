@@ -88,7 +88,7 @@ const Dashboard = () => {
 
                     {/* shared nav links */}
                     <li><NavLink to='/'><FaHome></FaHome> Home</NavLink></li>
-                    <li><NavLink to='/menu'><FaBookReader></FaBookReader> All Course</NavLink></li>
+                    <li><NavLink to='/allCourses'><FaBookReader></FaBookReader> All Course</NavLink></li>
                     <li><NavLink to='/order/salad'><FaShoppingBag></FaShoppingBag> Order Food</NavLink></li>
                     <li onClick={handleLogout}> <button><RiLogoutBoxRFill></RiLogoutBoxRFill> Logout</button></li>
                 </ul>

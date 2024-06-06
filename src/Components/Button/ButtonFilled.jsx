@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const ButtonFilled = ({ text = 'hello', onClick, style, icon, disable }) => {
-    console.log(disable);
     return (
         <button
             disabled={disable}            

@@ -2,12 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { FaTrash } from "react-icons/fa";
 import { IoIosAddCircle } from "react-icons/io";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { RiCheckDoubleLine } from "react-icons/ri";
-import Title from "../../Components/Title/Title";
+import { MdBlock } from "react-icons/md";
+import { CgUnblock } from "react-icons/cg";
+import Title from "../../../../Components/Title/Title";
+import { useState } from "react";
+import useAxiosSecure from "../../../../Hooks/UseAxiosSecure";
 
-const ManageUsers = () => {  
-    const axios = useAxiosPublic()
+const ManageUsers = () => {
+    const axios = useAxiosSecure()
+    const [toggle, setToggle] = useState(true)
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -90,6 +94,43 @@ const ManageUsers = () => {
                 }
             })
     }
+    const handleBlockUser = (user) => {
+        console.log(user);
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to change user status!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes!"
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                setToggle(!toggle)
+                console.log('toggle', toggle);
+                const { data } = await axios.patch(`/user/block/${user._id}`, { toggle })
+                console.log(data)
+                handleMakeUser(user)
+                refetch()
+                if(!toggle){
+                    Swal.fire({
+                        title: "Done!",
+                        text: 'User has been blocked',
+                        icon: "success"
+                    });
+                }                
+                else{
+                    Swal.fire({
+                        title: "Done!",
+                        text: 'User unblocked',
+                        icon: "success"
+                    });
+                }
+            }
+        });
+
+    }
     return (
         <div className="flex flex-col justify-center gap-4 p-10">
             <Title
@@ -105,9 +146,11 @@ const ManageUsers = () => {
                                 <th>No.</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Status</th>
                                 <th>Admin</th>
                                 <th>Creator</th>
                                 <th>User</th>
+                                <th>Action</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -119,6 +162,7 @@ const ManageUsers = () => {
                                         <th>{index + 1}</th>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
+                                        <td>{user.Status ? 'Unblocked' : 'Blocked'}</td>
                                         <td>
                                             {user.role === 'admin' ? <RiCheckDoubleLine></RiCheckDoubleLine> : <button onClick={() => handleMakeAdmin(user)} className="btn bg-gradient-to-l from-[#3158ef] to-[#b765e7] text-white group"><IoIosAddCircle className="text-lg text-white group-hover:text-[#553e92] duration-300"></IoIosAddCircle></button>}
                                         </td>
@@ -127,6 +171,9 @@ const ManageUsers = () => {
                                         </td>
                                         <td>
                                             {user?.role === 'user' ? <RiCheckDoubleLine></RiCheckDoubleLine> : <button onClick={() => handleMakeUser(user)} className="btn bg-gradient-to-l from-[#3158ef] to-[#b765e7] text-white group"><IoIosAddCircle className="text-lg text-white group-hover:text-[#553e92] duration-300"></IoIosAddCircle></button>}
+                                        </td>
+                                        <td>
+                                            <button onClick={() => handleBlockUser(user)} className="btn">{!user.Status? <CgUnblock className="text-red-600 text-2xl"></CgUnblock>: <MdBlock className="text-red-600 text-2xl"></MdBlock>}</button>
                                         </td>
                                         <td>
                                             <button onClick={() => handleDeleteUser(user)} className="btn"><FaTrash className="text-red-600 text-lg"></FaTrash></button>

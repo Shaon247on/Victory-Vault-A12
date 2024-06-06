@@ -17,7 +17,9 @@
         "Name":"Lalon Sai",
         "Email":"lalon@sai.com",
         "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
-      }
+      },
+      "Approval": false
+      
     },
     {
       "ContestName": "AI Innovation Contest",
@@ -37,7 +39,9 @@
         "Name":"Lalon Sai",
         "Email":"lalon@sai.com",
         "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
-      }
+      },
+      "Approval": true
+      
     },
     {
       "ContestName": "Web Development Marathon",
@@ -57,7 +61,9 @@
         "Name":"Lalon Sai",
         "Email":"lalon@sai.com",
         "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
-      }
+      },
+      "Approval": false
+      
     },
     {
       "ContestName": "Mobile App Challenge",
@@ -78,7 +84,9 @@
         "Name":"Lalon Sai",
         "Email":"lalon@sai.com",
         "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
-      }
+      },
+      "Approval": true
+      
     },
     {
       "ContestName": "Data Science Contest",
@@ -98,6 +106,8 @@
         "Name":"Lalon Sai",
         "Email":"lalon@sai.com",
         "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
-      }
+      },
+      "Approval": true
+      
     }
   ]

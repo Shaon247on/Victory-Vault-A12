@@ -29,7 +29,8 @@ const SignUp = () => {
                         const userInfo = {
                             email: email,
                             name: name,
-                            role: 'user'
+                            role: 'user',
+                            Status: true
                         }
                         console.log(userInfo)
                         axiosPublic.post('/users', userInfo)
@@ -66,7 +67,7 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                     <div className="space-y-4">
                         <div className="space-y-2">
-                            <label htmlFor="email" className="block text-sm">Name</label>
+                            <label  className="block text-sm">Name</label>
                             <input type="text" placeholder="your name" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 border-gray-300 dark:bg-gray-900 bg-gray-50 dark:text-gray-100 text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
                                 {...register("name", { required: true })}
                             />
@@ -75,7 +76,7 @@ const SignUp = () => {
                             )}
                         </div>
                         <div className="space-y-2">
-                            <label htmlFor="email" className="block text-sm">Email</label>
+                            <label  className="block text-sm">Email</label>
                             <input type="email" placeholder="your email" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 border-gray-300 dark:bg-gray-900 bg-gray-50 dark:text-gray-100 text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
                                 {...register("email", { required: true })}
                             />
@@ -84,7 +85,7 @@ const SignUp = () => {
                             )}
                         </div>
                         <div className="space-y-2">
-                            <label htmlFor="email" className="block text-sm">Photo</label>
+                            <label  className="block text-sm">Photo</label>
                             <input type="text" placeholder="photoURL" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 border-gray-300 dark:bg-gray-900 bg-gray-50 dark:text-gray-100 text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
                                 {...register("photo", { required: true, pattern: /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|png|gif|bmp|webp|svg)$/ })}
                             />

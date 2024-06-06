@@ -7,8 +7,10 @@ import SignUp from "../Pages/SignUp/SignUp";
 import ContestDetails from "../Pages/ContestDetails/ContestDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Dashboard from "../LayOut/Dashboard";
-import ManageUsers from "../Pages/ManageUsers/ManageUsers";
-import ManageContests from "../Pages/ManageContests/ManageContests";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import ManageContests from "../Pages/Dashboard/Admin/ManageContests/ManageContests";
+import AdminRoute from "./AdminRoutes";
 
 const router = createBrowserRouter([
     {
@@ -47,12 +49,16 @@ const router = createBrowserRouter([
             // Admin
             {
                 path: 'manageUsers',
-                element:<ManageUsers></ManageUsers>
+                element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
                 
             },
             {
                 path:'manageContests',
-                element:<ManageContests></ManageContests>
+                element:<AdminRoute><ManageContests></ManageContests></AdminRoute>
+            },
+            {
+                path:'adminHome',
+                element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
             }
             // Creators
             // Users            
