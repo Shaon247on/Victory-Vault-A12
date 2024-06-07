@@ -127,16 +127,14 @@ const Dashboard = () => {
                                     data-tooltip-id="my-tooltip"
                                     data-tooltip-content={`${user.displayName}`}
                                     data-tooltip-place="top"
+                                    className=""
                                     
                                 >
-                                    <img className="rounded-full avatar w-12" src={user.photoURL} />
+                                    <img className="rounded-full avatar w-12 h-12 object-fill" src={user.photoURL} />
                                 </a>
                                 <Tooltip className="mt-5" id="my-tooltip">                                    
                                 </Tooltip>
-                            </div>
-                            // <div className="w-10 rounded-full">
-                            //     <img className="rounded-full" src={user.photoURL} />
-                            // </div>
+                            </div>                           
                             :
                             <Link to='/login'><ButtonFilled text="Login"></ButtonFilled></Link>
                     }
