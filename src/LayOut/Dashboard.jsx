@@ -3,6 +3,7 @@ import { FaAd, FaCalendar, FaHome, FaList, FaShoppingBag, FaTrophy, FaUsers, FaB
 import { RiLogoutBoxRFill } from "react-icons/ri";
 import useAdmin from "../Hooks/useAdmin";
 import useCreator from "../Hooks/useCreator";
+import { IoMdAddCircle } from "react-icons/io";
 import useUser from "../Hooks/useUser";
 import useAuth from "../Hooks/useAuth";
 import 'react-tooltip/dist/react-tooltip.css'
@@ -46,7 +47,7 @@ const Dashboard = () => {
     return (
         <div className="flex justify-between">
             <div className="w-64 min-h-screen bg-gradient-to-l from-[#3158ef] to-[#b765e7]">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center mt-4">
                     <img src="https://i.ibb.co/gdm3HVn/Untitled-design-2.png" className="w-[40px] rounded-xl" />
                     <h1 className="text-xl font-extrabold">Victory <span className="text-white">Vault</span></h1>
                 </div>
@@ -75,7 +76,7 @@ const Dashboard = () => {
                             <li>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/addContest'><FaCalendar></FaCalendar> Add Contest</NavLink>
+                                <NavLink to='/dashboard/addContest'><IoMdAddCircle></IoMdAddCircle> Add Contest</NavLink>
                             </li>
                             <li>
                                 <NavLink to='/dashboard/myCreatedContest'><FaAd></FaAd> My Created Contest</NavLink>
@@ -107,7 +108,6 @@ const Dashboard = () => {
                     {/* shared nav links */}
                     <li><NavLink to='/'><FaHome></FaHome> Home</NavLink></li>
                     <li><NavLink to='/allCourses'><FaBookReader></FaBookReader> All Course</NavLink></li>
-                    <li><NavLink to='/order/salad'><FaShoppingBag></FaShoppingBag> Order Food</NavLink></li>
                     <li onClick={handleLogout}> <button><RiLogoutBoxRFill></RiLogoutBoxRFill> Logout</button></li>
                 </ul>
 

@@ -1,12 +1,12 @@
 import { Helmet } from "react-helmet-async";
-import useContest from "../../Hooks/useContest";
 import Title from "../../Components/Title/Title";
 import ContestCard from "../Home/PopularContestCards/ContestCard";
 import { Link } from "react-router-dom";
 import ButtonOutline from "../../Components/Button/ButtonOutline";
+import useApprovedContest from "../../Hooks/useApprovedContest";
 
 const AllCourses = () => {
-    const [contests] = useContest()
+    const [contests] = useApprovedContest()
     console.log(contests);
     return (
         <div className="mt-8">
