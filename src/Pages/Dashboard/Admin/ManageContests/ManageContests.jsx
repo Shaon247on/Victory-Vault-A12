@@ -6,9 +6,10 @@ import { FaTrash } from "react-icons/fa";
 import { FcApprove } from "react-icons/fc";
 import AdminComment from "./AdminComment";
 import moment from "moment";
+import { RotatingSquare } from "react-loader-spinner";
 
 const ManageContests = () => {
-    const [contests, refetch,] = useContest()
+    const [contests, refetch, loading] = useContest()
     const axios = useAxiosSecure()
 
     const handleDeleteContest = (id) => {
@@ -64,18 +65,26 @@ const ManageContests = () => {
         });
 
     }
+    if (loading) {
+        return <div className="flex justify-center items-center">
+            <RotatingSquare
+                visible={true}
+                height="100"
+                width="100"
+                color="#3158ef"
+                ariaLabel="rotating-square-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+            />
+        </div>
+    }
     return (
-        <div className="pt-7">                   
-            <Title subTitle='All Contests List' mainTitle={'Approve or delete the contest you find inappropriate'}></Title>
+        <div className="pt-7">
+            <Title subTitle='All Contests List' mainTitle={'Manage Contests Approval'}></Title>
             <div className="container p-2 mx-auto sm:p-4 text-gray-100 dark:text-gray-800">
                 <div className="overflow-x-auto">
                     <table className="min-w-full text-xs">
                         <colgroup>
-                            <col />
-                            <col />
-                            <col />
-                            <col />
-                            <col />
                             <col className="w-24" />
                         </colgroup>
                         <thead className="bg-gray-700 dark:bg-gray-300">
@@ -128,7 +137,7 @@ const ManageContests = () => {
                                         </td>
                                         <td className="p-3 text-right">
                                             <a href="#my_modal_8" className="btn">Comment</a>
-                                            <AdminComment id={contest._id}></AdminComment> 
+                                            <AdminComment id={contest._id}></AdminComment>
                                         </td>
                                         <td className="p-3 text-right">
                                             <button onClick={() => handleDeleteContest(contest._id)} className="btn"><FaTrash className="text-red-600 text-lg"></FaTrash></button>

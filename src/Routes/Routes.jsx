@@ -11,6 +11,10 @@ import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import ManageContests from "../Pages/Dashboard/Admin/ManageContests/ManageContests";
 import AdminRoute from "./AdminRoutes";
+import CreatorHome from "../Pages/Dashboard/Creator/CreatorHome/CreatorHome";
+import AddContest from "../Pages/Dashboard/Creator/AddContest/AddContest";
+import MyCreatedContest from "../Pages/Dashboard/Creator/MyCreatedContest/MyCreatedContest";
+import ContestSubmitted from "../Pages/Dashboard/Creator/ContestSubmitted/ContestSubmitted";
 
 const router = createBrowserRouter([
     {
@@ -59,8 +63,25 @@ const router = createBrowserRouter([
             {
                 path:'adminHome',
                 element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
-            }
+            },
             // Creators
+            {
+                path: 'creatorHome',
+                element:<CreatorHome></CreatorHome>
+            },
+            {
+                path: 'addContest',
+                element:<AddContest></AddContest>
+            },
+            {
+                path: 'myCreatedContest',
+                element:<MyCreatedContest></MyCreatedContest>
+            },
+            {
+                path: 'contestSubmitted',
+                element:<ContestSubmitted></ContestSubmitted>
+            },
+            
             // Users            
 
         ]

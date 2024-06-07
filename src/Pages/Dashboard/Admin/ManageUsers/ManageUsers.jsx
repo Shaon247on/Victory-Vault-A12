@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { RiCheckDoubleLine } from "react-icons/ri";
 import { MdBlock } from "react-icons/md";
 import { CgUnblock } from "react-icons/cg";
+import { FaCircle } from "react-icons/fa6";
 import Title from "../../../../Components/Title/Title";
 import { useState } from "react";
 import useAxiosSecure from "../../../../Hooks/UseAxiosSecure";
@@ -47,6 +48,14 @@ const ManageUsers = () => {
     }
 
     const handleMakeAdmin = user => {
+        if(!user.Status){
+            Swal.fire({
+                icon: "error",
+                title: "Can't Change Authority",
+                text: "User is blocked!",
+              });
+              return ''
+        }
         axios.patch(`/users/admin/${user._id}`)
             .then(res => {
                 console.log(res.data);
@@ -63,6 +72,14 @@ const ManageUsers = () => {
             })
     }
     const handleMakeCreator = user => {
+        if(!user.Status){
+            Swal.fire({
+                icon: "error",
+                title: "Can't Change Authority",
+                text: "User is blocked!",
+              });
+              return ''
+        }
         axios.patch(`/users/creator/${user._id}`)
             .then(res => {
                 console.log(res.data);
@@ -161,8 +178,8 @@ const ManageUsers = () => {
                                     <tr key={user._id}>
                                         <th>{index + 1}</th>
                                         <td>{user.name}</td>
-                                        <td>{user.email}</td>
-                                        <td>{user.Status ? 'Unblocked' : 'Blocked'}</td>
+                                        <td>{user.email}</td>                                        
+                                        <td>{user.Status ? <div className="badge px-4 bg-green-600 text-black font-medium">Active</div> : <div className="badge bg-red-600 text-black font-medium">Blocked</div>}</td>
                                         <td>
                                             {user.role === 'admin' ? <RiCheckDoubleLine></RiCheckDoubleLine> : <button onClick={() => handleMakeAdmin(user)} className="btn bg-gradient-to-l from-[#3158ef] to-[#b765e7] text-white group"><IoIosAddCircle className="text-lg text-white group-hover:text-[#553e92] duration-300"></IoIosAddCircle></button>}
                                         </td>
