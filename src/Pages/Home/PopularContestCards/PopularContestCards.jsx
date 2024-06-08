@@ -19,7 +19,7 @@ const PopularContestCards = () => {
                     contests.map((contest, idx) => <ContestCard key={idx} contest={contest}></ContestCard>)
                 }
             </div>
-            <div className="flex justify-center my-10">
+            <div className="flex items-center justify-center my-10">
                 <Link to='/allCourses'><ButtonOutline text='View More'></ButtonOutline></Link>
             </div>
         </div>

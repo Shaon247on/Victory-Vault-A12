@@ -1,9 +1,12 @@
 import { RotatingSquare } from "react-loader-spinner";
 import useApplied from "../../../../../Hooks/useApplied";
 import moment from "moment";
+import Title from "../../../../../Components/Title/Title";
+import useAuth from "../../../../../Hooks/useAuth";
 
 const ParticipatedContest = () => {
     const [contests, refetch, loading] = useApplied()
+    const { user } = useAuth()
     console.log(contests);
     if (loading) {
         return <div className="flex justify-center items-center">
@@ -20,7 +23,12 @@ const ParticipatedContest = () => {
     }
     return (
         <div>
-            <h1>Applied contest: {contests.length}</h1>
+            
+            <Title
+                subTitle='Participated Contest'
+                mainTitle='Check All The Participated Contest Here'
+            ></Title>
+            <h1 className=" text-2xl font-bold mx-6"><span>Applied contest: </span><div className="badge badge-accent">{contests.length}</div></h1>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100 text-gray-800">
                 <div className="overflow-x-auto">
                     <table className="min-w-full text-xs">
@@ -33,10 +41,8 @@ const ParticipatedContest = () => {
                                 <th className="p-3">Creator Name</th>
                                 <th className="p-3">Contest Name</th>
                                 <th className="p-3">Prize & Deadline</th>
-                                <th className="p-3">Status</th>
-                                <th className="p-3 text-right">Approval</th>
-                                <th className="p-3 text-right">Comment</th>
-                                <th className="p-3 text-right">Delete</th>
+                                <th className="p-3">Payment</th>
+                                <th className="p-3">Result</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,18 +74,38 @@ const ParticipatedContest = () => {
                                                     </span>
                                             }
                                         </td>
-                                        <td className="p-3 text-right">
+                                        <td className="p-3">
                                             {/* {
-                                                contest.Approval ?
-                                                    <button disabled onClick={() => handleDeleteContest(contest._id)} className="btn"><FcApprove className="text-green-600 text-2xl"></FcApprove></button> :
-                                                    <button onClick={() => handleApproval(contest._id)} className="btn"><FcApprove className="text-green-600 text-2xl"></FcApprove></button>
+                                                user.email === contest.ContestWinner.apply.Email ?
+                                                    <span className="px-3 py-1 font-semibold rounded-md bg-[#3158ef] dark:text-gray-900 text-gray-50">
+                                                        <span>Winner</span>
+                                                    </span> :
+                                                    <div>
+                                                        {
+                                                        Object.keys(contest.ContestWinner).length === 0 ? <span className="px-3 py-1 font-semibold rounded-md bg-[#3158ef] dark:text-gray-900 text-gray-50">
+                                                            <span>Pending</span>
+                                                        </span> :
+                                                            <span className="px-3 py-1 font-semibold rounded-md bg-[#3158ef] dark:text-gray-900 text-gray-50">
+                                                                <span>Un-success</span>
+                                                            </span>
+                                                    }
+                                                    </div>
                                             } */}
-                                        </td>
-                                        <td className="p-3 text-right">
-                                            <a href="#my_modal_8" className="btn">Comment</a>                                            
-                                        </td>
-                                        <td className="p-3 text-right">
-                                            {/* <button onClick={() => handleDeleteContest(contest._id)} className="btn"><FaTrash className="text-red-600 text-lg"></FaTrash></button> */}
+                                            {
+                                                Object.keys(contest.ContestWinner).length === 0 ? <span className="px-3 py-1 font-semibold rounded-md bg-[#3158ef] dark:text-gray-900 text-gray-50">
+                                                    <span>Pending</span>
+                                                </span> :
+                                                    <>
+                                                        {
+                                                            user.email === contest.ContestWinner.apply.Email ?
+                                                                <span className="px-3 py-1 font-semibold rounded-md bg-green-600 dark:text-gray-900 text-gray-50">
+                                                                    <span>Winner</span>
+                                                                </span> : <span className="px-3 py-1 font-semibold rounded-md bg-gray-600 dark:text-gray-900 text-gray-50">
+                                                                    <span>Un-success</span>
+                                                                </span>
+                                                        }
+                                                    </>
+                                            }
                                         </td>
                                     </tr>
                                 )

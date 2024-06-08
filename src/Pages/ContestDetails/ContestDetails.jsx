@@ -5,14 +5,16 @@ import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import Payment from "./Payment";
+
+
+
 const ContestDetails = () => {
     const [toggle, setToggle] = useState(false)
     const { user } = useAuth()
     const axios = useAxiosSecure()
     const contest = useLoaderData()
     console.log(contest)
-    const { ContestName, ContestPrize, ContestFee, tag, ContestDescription, Author, AttemptedCount, ContestWinner, Deadline, Image, _id } = contest
+    const { ContestName, ContestPrize, ContestFee, tag, ContestDescription, Author, AttemptedCount, ContestWinner, Deadline, Image, _id, Applied, Task } = contest
 
     const handleApply = async () => {
         const userInfo = {
@@ -36,10 +38,10 @@ const ContestDetails = () => {
 
     return (
         <div className="relative">
-            <div className="flex flex-col md:flex-row bg-gradient-to-t from-[#3158efa1] text-black p-9">
-                <div className="m-20 mt-32">
-                    <h1 className="text-5xl text-[#192335] font-bold font-playfair">{ContestName}</h1>
-                    <h1 className="text-3xl font-roboto font-bold mt-7 mb-2 "><span className="text-3xl font-normal text-[#192335] ">Winning Prize:</span> {ContestPrize}</h1>
+            <div className="flex flex-col lg:flex-row bg-gradient-to-t from-[#3158efa1] text-black p-0 md:p-9">
+                <div className="m-5 md:m-20 mt-32">
+                    <h1 className="text-3xl md:text-5xl text-[#192335] font-bold font-playfair">{ContestName}</h1>
+                    <h1 className="text-lg md:text-3xl font-roboto font-bold mt-7 mb-2 "><span className="text-lg md:text-3xl font-normal text-[#192335] ">Winning Prize:</span> {ContestPrize}</h1>
                     <h3 className="w-[300px] md:w-[600px]  lg:text-lg mb-5 text-[#192335] font-extralight">{ContestDescription}</h3>
                     <div className=" flex gap-16 mb-4">
                         <div className="flex items-center gap-2">
@@ -48,11 +50,12 @@ const ContestDetails = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <FaUser className="text-black"></FaUser>
-                            <div className="badge badge-secondary badge-sm">{AttemptedCount}</div>
+                            <div className="badge badge-secondary badge-sm">{Applied.length}</div>
                         </div>
                     </div>
                     <div className="mb-10">
-                        <h1 className="text-4xl font-bold"><span className="text-4xl font-semibold">Entry Fee:</span> ${ContestFee}</h1>
+                        <h1 className="text-lg md:text-4xl font-bold"><span className="text-lg md:text-4xl font-semibold">Entry Fee:</span> ${ContestFee}</h1>
+                        <h1 className="text-lg md:text-4xl font-bold"><span className="text-lg md:text-4xl font-semibold">Submission:</span>{Task}</h1>
                     </div>
                     <div className="flex items-center gap-3 mt-6">
                         <div className="avatar">
@@ -71,7 +74,7 @@ const ContestDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-[380px]  absolute bottom-20 right-20">
+            <div className="w-[380px] relative lg:absolute md:bottom-64 lg:bottom-20 md:-right-[370px] lg:right-20">
                 <div className="block rounded-xl bg-white shadow-xl dark:bg-neutral-700 text-center">
 
                     <a href="#!">

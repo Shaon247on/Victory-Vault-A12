@@ -16,79 +16,90 @@ import AddContest from "../Pages/Dashboard/Creator/AddContest/AddContest";
 import MyCreatedContest from "../Pages/Dashboard/Creator/MyCreatedContest/MyCreatedContest";
 import ContestSubmitted from "../Pages/Dashboard/Creator/ContestSubmitted/ContestSubmitted";
 import ParticipatedContest from "../Pages/Dashboard/Creator/User/ParticipatedContest/ParticipatedContest";
+import WinningContest from "../Pages/Dashboard/Creator/User/WinningContest/WinningContest";
+import Profile from "../Pages/Dashboard/Creator/User/Profile/Profile";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/allCourses',
-                element:<AllCourses></AllCourses>
+                path: '/allCourses',
+                element: <AllCourses></AllCourses>
             },
             {
-                path:'/login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
-                path:'/signUp',
+                path: '/signUp',
                 element: <SignUp></SignUp>
             },
             {
-                path:'/contestDetails/:id',
+                path: '/contestDetails/:id',
                 element: <ContestDetails></ContestDetails>,
-                loader:({params})=> fetch(`http://localhost:5000/contest/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/contest/${params.id}`)
             },
 
         ]
     },
     {
-        path:'/dashboard',
+        path: '/dashboard',
         element: <Dashboard></Dashboard>,
-        children:[
+        children: [
             // Admin
             {
                 path: 'manageUsers',
-                element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
-                
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+
             },
             {
-                path:'manageContests',
-                element:<AdminRoute><ManageContests></ManageContests></AdminRoute>
+                path: 'manageContests',
+                element: <AdminRoute><ManageContests></ManageContests></AdminRoute>
             },
             {
-                path:'adminHome',
-                element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
+                path: 'adminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             // Creators
             {
                 path: 'creatorHome',
-                element:<CreatorHome></CreatorHome>
+                element: <CreatorHome></CreatorHome>
             },
             {
                 path: 'addContest',
-                element:<AddContest></AddContest>
+                element: <AddContest></AddContest>
             },
             {
                 path: 'myCreatedContest',
-                element:<MyCreatedContest></MyCreatedContest>
+                element: <MyCreatedContest></MyCreatedContest>
             },
             {
                 path: 'contestSubmitted',
-                element:<ContestSubmitted></ContestSubmitted>
+                element: <ContestSubmitted></ContestSubmitted>
             },
-            
+
             // Users 
-            
             {
-                path:'participatedContest',
-                element:<ParticipatedContest></ParticipatedContest>
-            }
+                path: 'userProfile',
+                element: <Profile></Profile>
+            },
+
+            {
+                path: 'participatedContest',
+                element: <ParticipatedContest></ParticipatedContest>
+            },
+            {
+                path: 'winningContest',
+                element: <WinningContest></WinningContest>
+            },
+
 
         ]
     }

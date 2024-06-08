@@ -46,7 +46,7 @@ const Dashboard = () => {
 
     return (
         <div className="flex justify-between">
-            <div className="w-64 min-h-screen bg-gradient-to-l from-[#3158ef] to-[#b765e7]">
+            <div className="hidden lg:block w-64 min-h-screen bg-gradient-to-l from-[#3158ef] to-[#b765e7]">
                 <div className="flex flex-col items-center mt-4">
                     <img src="https://i.ibb.co/gdm3HVn/Untitled-design-2.png" className="w-[40px] rounded-xl" />
                     <h1 className="text-xl font-extrabold">Victory <span className="text-white">Vault</span></h1>
@@ -90,7 +90,7 @@ const Dashboard = () => {
                         isUser &&
                         <>
                             <li>
-                                <NavLink to='/dashboard/userHome'><FaHome></FaHome> My Profile</NavLink>
+                                <NavLink to='/dashboard/userProfile'><FaHome></FaHome> My Profile</NavLink>
                             </li>
                             <li>
                             </li>
@@ -98,7 +98,7 @@ const Dashboard = () => {
                                 <NavLink to='/dashboard/participatedContest'><FaCalendar></FaCalendar> My Participated Contest</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/review'><FaAd></FaAd> My Winning Contest Page</NavLink>
+                                <NavLink to='/dashboard/winningContest'><FaAd></FaAd> My Winning Contest Page</NavLink>
                             </li>
                         </>
                     }
@@ -114,6 +114,68 @@ const Dashboard = () => {
             </div>
             <div className="flex-1">
                 <div className="flex justify-end items-center pr-10 mt-7 gap-4">
+                    <div className="dropdown dropdown-end md:dropdown-bottom">
+                        <div tabIndex={0} role="button" className="btn m-1">Click</div>
+                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                            {
+                                isAdmin &&
+
+                                <>
+                                    <li>
+                                        <NavLink to='/dashboard/adminHome'><FaHome></FaHome> Admin Home</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/manageContests'><FaTrophy></FaTrophy> Manage Contests</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/manageUsers'><FaUsers></FaUsers>Manage Users</NavLink>
+                                    </li>
+                                </>
+                            }
+                            {
+                                isCreator &&
+                                <>
+                                    <li>
+                                        <NavLink to='/dashboard/creatorHome'><FaHome></FaHome> Creator Home</NavLink>
+                                    </li>
+                                    <li>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/addContest'><IoMdAddCircle></IoMdAddCircle> Add Contest</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/myCreatedContest'><FaAd></FaAd> My Created Contest</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/contestSubmitted'><FaList></FaList> Contest Submitted</NavLink>
+                                    </li>
+                                </>
+                            }
+                            {
+                                isUser &&
+                                <>
+                                    <li>
+                                        <NavLink to='/dashboard/userProfile'><FaHome></FaHome> My Profile</NavLink>
+                                    </li>
+                                    <li>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/participatedContest'><FaCalendar></FaCalendar> My Participated Contest</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/dashboard/winningContest'><FaAd></FaAd> My Winning Contest Page</NavLink>
+                                    </li>
+                                </>
+                            }
+
+                            <div className="divider"></div>
+
+                            {/* shared nav links */}
+                            <li><NavLink to='/'><FaHome></FaHome> Home</NavLink></li>
+                            <li><NavLink to='/allCourses'><FaBookReader></FaBookReader> All Course</NavLink></li>
+                            <li onClick={handleLogout}> <button><RiLogoutBoxRFill></RiLogoutBoxRFill> Logout</button></li>
+                        </ul>
+                    </div>
                     <label className="cursor-pointer grid place-items-center">
                         <input onChange={handleToggle} type="checkbox" className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2" />
                         <svg className="col-start-1 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></svg>
@@ -122,19 +184,20 @@ const Dashboard = () => {
                     {
                         user ?
                             <div>
+
                                 <a
                                     id="my-tooltip"
                                     data-tooltip-id="my-tooltip"
                                     data-tooltip-content={`${user.displayName}`}
                                     data-tooltip-place="top"
                                     className=""
-                                    
+
                                 >
                                     <img className="rounded-full avatar w-12 h-12 object-fill" src={user.photoURL} />
                                 </a>
-                                <Tooltip className="mt-5" id="my-tooltip">                                    
+                                <Tooltip className="mt-5" id="my-tooltip">
                                 </Tooltip>
-                            </div>                           
+                            </div>
                             :
                             <Link to='/login'><ButtonFilled text="Login"></ButtonFilled></Link>
                     }
