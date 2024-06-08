@@ -15,6 +15,7 @@ import CreatorHome from "../Pages/Dashboard/Creator/CreatorHome/CreatorHome";
 import AddContest from "../Pages/Dashboard/Creator/AddContest/AddContest";
 import MyCreatedContest from "../Pages/Dashboard/Creator/MyCreatedContest/MyCreatedContest";
 import ContestSubmitted from "../Pages/Dashboard/Creator/ContestSubmitted/ContestSubmitted";
+import ParticipatedContest from "../Pages/Dashboard/Creator/User/ParticipatedContest/ParticipatedContest";
 
 const router = createBrowserRouter([
     {
@@ -82,7 +83,12 @@ const router = createBrowserRouter([
                 element:<ContestSubmitted></ContestSubmitted>
             },
             
-            // Users            
+            // Users 
+            
+            {
+                path:'participatedContest',
+                element:<ParticipatedContest></ParticipatedContest>
+            }
 
         ]
     }

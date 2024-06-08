@@ -62,7 +62,21 @@
         "Email":"lalon@sai.com",
         "Photo":"https://i.pinimg.com/564x/9e/2a/46/9e2a46733d52beed522cf4ee4a99a629.jpg"
       },
-      "Approval": false
+      "Approval": false,
+      "Applied":[
+        {
+          "Email":"emarot@kaka.com",
+          "photo":"photo.jpg",
+          "name":"emarot",
+          "payment":"false"
+        },
+        {
+          "Email":"rahim@gmail.com",
+          "photo":"photo2.jpg",
+          "name":"rahim",
+          "payment":"false"
+        }
+      ]
       
     },
     {

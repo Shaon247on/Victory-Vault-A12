@@ -95,7 +95,7 @@ const Dashboard = () => {
                             <li>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/reservation'><FaCalendar></FaCalendar> My Participated Contest</NavLink>
+                                <NavLink to='/dashboard/participatedContest'><FaCalendar></FaCalendar> My Participated Contest</NavLink>
                             </li>
                             <li>
                                 <NavLink to='/dashboard/review'><FaAd></FaAd> My Winning Contest Page</NavLink>
