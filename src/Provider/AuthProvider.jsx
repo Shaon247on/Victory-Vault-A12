@@ -51,6 +51,19 @@ const AuthProvider = ({children}) => {
         })
     }
 
+
+    const photoUpdate = (photoURL) => { 
+        return updateProfile(auth.currentUser, {
+            photoURL: photoURL
+        })
+    }
+    const nameUpdate = (name) => {  
+        return updateProfile(auth.currentUser, {
+            displayName: name
+        })
+    }
+
+
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser)
@@ -84,7 +97,10 @@ const AuthProvider = ({children}) => {
         updateUserProfile,
         googleLogin,
         githubLogin,
-        deleteAccount
+        deleteAccount,
+        photoUpdate,
+        nameUpdate,
+        setUser
     }
     return (
         <AuthContext.Provider value={authInfo}>

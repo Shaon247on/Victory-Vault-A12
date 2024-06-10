@@ -24,7 +24,7 @@ const Login = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         const { email, password } = data
         logIn(email, password)
             .then(result => {
@@ -41,7 +41,7 @@ const Login = () => {
 
     const handleValidateCaptcha = (e) => {
         const value = e.target.value
-        console.log(value);
+        // console.log(value);
         if (validateCaptcha(value)) {
             setDisable(false)
         } else {
@@ -52,7 +52,7 @@ const Login = () => {
     const handleGoogleLogin = ()=>{
         googleLogin()
         .then(async result=>{
-            console.log(result.user);
+            // console.log(result.user);
             const userInfo ={name: result.user?.displayName, email: result.user?.email}
             axiosPublic.post('/users', userInfo)
             .then(res=>{

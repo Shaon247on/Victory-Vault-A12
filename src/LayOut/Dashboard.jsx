@@ -4,6 +4,7 @@ import { RiLogoutBoxRFill } from "react-icons/ri";
 import useAdmin from "../Hooks/useAdmin";
 import useCreator from "../Hooks/useCreator";
 import { IoMdAddCircle } from "react-icons/io";
+import { IoMdMenu } from "react-icons/io";
 import useUser from "../Hooks/useUser";
 import useAuth from "../Hooks/useAuth";
 import 'react-tooltip/dist/react-tooltip.css'
@@ -115,7 +116,7 @@ const Dashboard = () => {
             <div className="flex-1">
                 <div className="flex justify-end items-center pr-10 mt-7 gap-4">
                     <div className="dropdown dropdown-end md:dropdown-bottom">
-                        <div tabIndex={0} role="button" className="btn m-1">Click</div>
+                        <div tabIndex={0} role="button" className="btn m-1 flex items-center justify-end lg:hidden"><IoMdMenu className="text-2xl"></IoMdMenu></div>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                             {
                                 isAdmin &&

@@ -18,6 +18,8 @@ import ContestSubmitted from "../Pages/Dashboard/Creator/ContestSubmitted/Contes
 import ParticipatedContest from "../Pages/Dashboard/Creator/User/ParticipatedContest/ParticipatedContest";
 import WinningContest from "../Pages/Dashboard/Creator/User/WinningContest/WinningContest";
 import Profile from "../Pages/Dashboard/Creator/User/Profile/Profile";
+import PrivateRoutes from "./PrivateRoutes";
+import CreatorRoutes from "./CreatorRoutes";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/contestDetails/:id',
-                element: <ContestDetails></ContestDetails>,
+                element: <PrivateRoutes><ContestDetails></ContestDetails></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/contest/${params.id}`)
             },
 
@@ -70,19 +72,19 @@ const router = createBrowserRouter([
             // Creators
             {
                 path: 'creatorHome',
-                element: <CreatorHome></CreatorHome>
+                element: <CreatorRoutes><CreatorHome></CreatorHome></CreatorRoutes>
             },
             {
                 path: 'addContest',
-                element: <AddContest></AddContest>
+                element: <CreatorRoutes><AddContest></AddContest></CreatorRoutes>
             },
             {
                 path: 'myCreatedContest',
-                element: <MyCreatedContest></MyCreatedContest>
+                element: <CreatorRoutes><MyCreatedContest></MyCreatedContest></CreatorRoutes>
             },
             {
                 path: 'contestSubmitted',
-                element: <ContestSubmitted></ContestSubmitted>
+                element: <CreatorRoutes><ContestSubmitted></ContestSubmitted></CreatorRoutes>
             },
 
             // Users 

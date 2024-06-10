@@ -18,7 +18,7 @@ const SignUp = () => {
     const { signUp, updateUserProfile } = useAuth()
 
     const onSubmit = (data) => {
-        console.log(data)
+        // console.log(data)
         const { name, email, photo, password } = data
 
         signUp(email, password)
@@ -32,7 +32,7 @@ const SignUp = () => {
                             role: 'user',
                             Status: true
                         }
-                        console.log(userInfo)
+                        // console.log(userInfo)
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {

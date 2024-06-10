@@ -42,6 +42,7 @@ const AddContest = () => {
                 Image: photoUrl,
                 AttemptedCount: 0,
                 ContestWinner:{},
+                Applied:[],
                 ContestDescription: Description,
                 ContestPrize: Prize,
                 Task: Task,

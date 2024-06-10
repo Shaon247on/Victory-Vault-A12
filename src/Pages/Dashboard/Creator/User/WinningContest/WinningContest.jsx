@@ -7,10 +7,11 @@ const WinningContest = () => {
     const [winningContest, reload,] = useWinnerContest()
     const [contests, refetch] = useApplied()
     const shiftSize = 7
-    
+    const unsuccessContest = (contests.length- winningContest.length)
+    console.log(unsuccessContest);
     const dataMock = [
         { title: 'One', value: winningContest.length, color: '#24a06b' },
-        { title: 'Two', value: contests.length, color: '#C13C37', },
+        { title: 'Two', value: unsuccessContest, color: '#C13C37', },
     ];
     const defaultLabelStyle = {
         fontSize: '5px',
@@ -19,7 +20,7 @@ const WinningContest = () => {
 
     console.log('total applied:', contests, 'total wins:', winningContest)
     return (
-        <div>
+        <div className=' bg-pie bg-cover bg-center'>
             <Title
                 subTitle='Progress Report'
                 mainTitle='Track Your Progress & Result'
@@ -27,22 +28,23 @@ const WinningContest = () => {
             <div className='flex flex-col md:flex-row-reverse items-center justify-center gap-10'>
                 <div className=''>
                     <div>
+                        <h1 className='text-lg font-semibold'>Total Participation: <span className='badge badge-neutral'>{contests.length}</span></h1>
                         <h1 className='text-lg font-semibold'>Details:</h1>
                     </div>
                     <div className='border-t-2 border-b-2 border-t-gray-500 border-b-gray-500 p-4 flex-1'>
-                        <div className='flex justify-start items-center gap-60'>
+                        <div className='flex justify-start items-center gap-[265px]'>
                             <div className='flex items-center gap-2'>
                                 <div className='bg-[#C13C37] w-[16px] h-[16px]'></div>
-                                <h1>Applied</h1>
+                                <h1>Lost</h1>
                             </div>
-                            <p>{contests.length}</p>
+                            <p className='text-white'>{unsuccessContest}</p>
                         </div>
                         <div className='flex justify-start items-center gap-[260px]'>
                             <div className='flex items-center gap-2'>
                                 <div className='bg-[#24a06b] w-[16px] h-[16px]'></div>
                                 <h1>Wins</h1>
                             </div>
-                            <p>{winningContest.length}</p>
+                            <p className='text-white'>{winningContest.length}</p>
                         </div>
                     </div>
                 </div>

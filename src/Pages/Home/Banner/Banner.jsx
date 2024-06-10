@@ -44,7 +44,7 @@ const Banner = () => {
                         />
                     </h1>
                     <p className='text-[#6b7389] dark:text-white md:text-base lg:text-lg md:mt-3 lg:mt-7 mb2
-                     lg:mb-5'>Search for your contest and participate now to win fantastic prizes. Don&apos;t miss your chance to become a winner!</p>
+                     lg:mb-5 '>Search for your contest and participate now to win fantastic prizes. Don&apos;t miss your chance to become a winner!</p>
                     <div className='text-center'>
                         <fieldset className="w-full space-y-1 text-gray-100 dark:text-gray-800">
                             <label htmlFor="Search" className="hidden">Search</label>

@@ -10,7 +10,7 @@ const useCreator = () => {
         queryKey: [user?.email, 'isCreator'],
         queryFn: async () => {
             const res = await axios.get(`/users/creator/${user?.email}`)
-            console.log(res.data)
+            // console.log(res.data)
             return res.data?.creator
         }
     })
