@@ -46,7 +46,7 @@ const router = createBrowserRouter([
             {
                 path: '/contestDetails/:id',
                 element: <PrivateRoutes><ContestDetails></ContestDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/contest/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-12-supremacy-server.vercel.app/contest/${params.id}`)
             },
 
         ]
