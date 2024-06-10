@@ -31,7 +31,7 @@ const CreatorSlider = () => {
         <div className='mt-32'>
             <Title
                 subTitle='Creators Rush'
-                mainTitle='Watch Our Creators Best Creation'
+                mainTitle='Watch Our Best Contest Creators'
             >
 
             </Title>
@@ -49,12 +49,12 @@ const CreatorSlider = () => {
                 }}
                 pagination={true}
                 modules={[EffectCoverflow]}
-                className=" flex justify-center items-center mx-auto"
+                className=" flex justify-center w-[315px] lg:w-full items-center mx-auto"
             >
                 {
                     creators.map(creator =>
-                        <SwiperSlide key={creator.email} className='max-w-96'>
-                            <div className='flex flex-col gap-6 group relative shadow-lg text-white rounded-xl px-6 py-8 h-[250px] w-[215pc] lg:h-[400px] lg:w-[350px] overflow-hidden cursor-pointer'>
+                        <SwiperSlide key={creator.email} className='w-[315px] lg:max-w-96 mx-auto '>
+                            <div className='flex flex-col mx-auto gap-6 group relative shadow-lg text-white rounded-xl px-6 py-8 h-[350px] w-[315px] lg:h-[400px] lg:w-[350px] overflow-hidden cursor-pointer'>
                                 <div className='absolute inset-0 bg-cover bg-center' style={{
                                     backgroundImage: `url(${creator.photo})`
                                 }}></div>
@@ -68,16 +68,7 @@ const CreatorSlider = () => {
                             </div>
                         </SwiperSlide>
                     )
-                }
-                {/* <SwiperSlide className='max-w-96'>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide className='max-w-96'>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
-                <SwiperSlide className='max-w-96'>
-                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </SwiperSlide> */}
+                }                
             </Swiper>
         </div>
     );

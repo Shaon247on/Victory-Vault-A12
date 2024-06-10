@@ -76,9 +76,9 @@ const Banner = () => {
                         loop={true}
                         className=""
                     >
-                        <SwiperSlide>
+                        {/* <SwiperSlide>
                             <img src="https://i.pinimg.com/564x/6e/ed/df/6eeddf4ab0a6b3e03e6268f4bd822d44.jpg" alt="" />
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                         <SwiperSlide>
                             <img src="https://i.pinimg.com/564x/bd/7a/28/bd7a281a9e4757f7301f03c613c8e9c4.jpg" alt="" />
                         </SwiperSlide>

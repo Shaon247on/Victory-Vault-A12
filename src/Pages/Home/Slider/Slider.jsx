@@ -25,7 +25,7 @@ const Slider = () => {
             ></Title>
             <div>
                 <Swiper
-                    modules={[Navigation, Scrollbar, A11y, EffectFade]}
+                    modules={[Navigation, A11y, EffectFade]}
                     effect="fade"
                     spaceBetween={50}
                     slidesPerView={1}
@@ -52,7 +52,7 @@ const Slider = () => {
                                     <div className='absolute h-full inset-0 bg-cover bg-center w-[90%] mx-auto rounded-xl' style={{ backgroundImage: `url(${winnerContest.Image})` }} />
                                     <div className='absolute inset-0 bg-gradient-to-r from-black rounded-xl opacity-10 w-[90%] mx-auto group-hover:opacity-70 duration-300' />
                                     <div className='relative flex flex-col gap-3 justify-center'>
-                                        <div className='absolute top-6 left-3 md:left-20 w-[300px] md:w-[500px] h-[700px]'>
+                                        <div className='absolute top-0 md:top-6 left-3 md:left-20 w-[300px] md:w-[500px] h-[700px]'>
                                             <div className='flex items-center gap-6'>
                                                 <div
                                                     className='group w-24 h-24 bg-cover bg-center transition-all duration-500 rounded-full ease-in-out'
@@ -63,9 +63,8 @@ const Slider = () => {
                                                 </div>
                                             </div>
                                             <h1
-
-                                                className={`${toggle ? '' : "animate__animated animate__fadeInDown animate__slow"} mt-10 text-2xl md:text-5xl font-bold mb-4 font-roboto text-[#5cbdb9]`}>{toggle ? '' : winnerContest.ContestName}</h1>
-                                            <p className='group-hover:text-[#5cbdb9] duration-[2500ms] text-lg font-medium font-pop text-[#ebf6f5]'>Join the contest and showcase your talent! Your name could be the next one celebrated here. Believe in yourself and take the chance to shine!</p>
+                                                className={`${toggle ? '' : "animate__animated animate__fadeInDown animate__slow"} mt-4 md:mt-10 text-xl md:text-5xl font-bold mb-1 md:mb-4 font-roboto text-[#5cbdb9]`}>{toggle ? '' : winnerContest.ContestName}</h1>
+                                            <p className=' group-hover:text-[#5cbdb9] duration-[2500ms] text-[14px] md:text-lg font-medium font-pop text-[#ebf6f5]'>Join the contest and showcase your talent! Your name could be the next one celebrated here. Believe in yourself and take the chance to shine!</p>
 
                                         </div>
                                     </div>

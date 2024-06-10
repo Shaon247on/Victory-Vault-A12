@@ -128,7 +128,7 @@ const Login = () => {
                     </div>
 
                     {/* set disable at the value of disable props to active the captcha */}
-                    <ButtonFilled disable={false} text="login" style='w-full text-center'></ButtonFilled>
+                    <ButtonFilled disable={disable} text="login" style='w-full text-center'></ButtonFilled>
                 </form>
             </div>
         </div>
