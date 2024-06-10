@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
 import PopularContestCards from "../PopularContestCards/PopularContestCards";
 import Slider from "../Slider/Slider";
+import CreatorSlider from "../CreatorSlider/CreatorSlider";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularContestCards></PopularContestCards>
             <Slider></Slider>
+            <CreatorSlider></CreatorSlider>
         </div>
     );
 };
