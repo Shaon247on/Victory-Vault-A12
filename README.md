@@ -10,23 +10,18 @@ Admain password:Rango247on
 I'm aminul Islam Shaon, an student who is giving his full potentiality to learn Web Development.
 
 
-## Features
+## Concept 💡
 
-- Dedicated details page for each Contest.
+Our website hosts contests where users can participate and win prize. The contests span various categories, including Image Design, Article Writing, Marketing Strategy, Digital Advertisement, Gaming Review, Book Review, Business Idea, and Movie Review. Join us to showcase your talent and compete for rewards!
+
+
+## Features ✨
+
 - Admin have control over publishing contest.
 - contest creator will decide the winner from dashboard.
 - user will able to submite google link for task.
 - Dynamic deadline.
-- gitHub login and caprcha added in the login page.
-
-
-
-
-
-## 🔗 Links
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/](https://www.linkedin.com/in/md-aminul-islam-shaon-61198a208/)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
-
+- 
 
 ## Some of npm Packages used for the Challenges part:
 
@@ -38,7 +33,8 @@ I'm aminul Islam Shaon, an student who is giving his full potentiality to learn 
 
 🏃‍♂️ swiper.js
 
-## How To Run In Your LocalHost
+
+## How To Run In Your LocalHost 🏃‍♂️
 
 - Step-1: "git clone" => Clone the Repo using "Clone_Link"
 - Step-2: "npm i" => To install all the NPM Packages.
