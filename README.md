@@ -12,7 +12,7 @@ I'm aminul Islam Shaon, an student who is giving his full potentiality to learn 
 
 ## Concept 💡
 
-Our website hosts contests where users can participate and win prize. The contests span various categories, including Image Design, Article Writing, Marketing Strategy, Digital Advertisement, Gaming Review, Book Review, Business Idea, and Movie Review. Join us to showcase your talent and compete for rewards!
+This website have been build about the user and contest management system. Our website hosts contests where users can participate and win prize. The contests span various categories, including Image Design, Article Writing, Marketing Strategy, Digital Advertisement, Gaming Review, Book Review, Business Idea, and Movie Review. Join us to showcase your talent and compete for rewards!
 
 
 ## Features ✨
@@ -20,7 +20,9 @@ Our website hosts contests where users can participate and win prize. The contes
 - Admin have control over publishing contest.
 - contest creator will decide the winner from dashboard.
 - user will able to submite google link for task.
-- Dynamic deadline.
+- Dynamic dashboard panal for each type of user.
+- User profile will be shown on the navbar after login.
+- Dashboard will be displayed after clicking on the profile photo of user.
 
 
 ## Some of npm Packages used for the Challenges part:
